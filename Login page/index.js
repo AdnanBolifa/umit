@@ -1,4 +1,4 @@
-var myInput=document.getElementById("psw");
+var psw=document.getElementById("psw");
 var letter=document.getElementById("letter");
 var capital=document.getElementById("capital");
 var number=document.getElementById("number");
@@ -6,24 +6,24 @@ var specialChar=document.getElementById("specialChar");
 var length=document.getElementById("length");
 
 // When the user clicks on the password field, show the message box
-myInput.onfocus=function()
+psw.onfocus=function()
 {
     document.getElementById("message").style.display="block";
 }
 
 // When the user clicks outside of the password field, hide the message box
-myInput.onblur=function()
+psw.onblur=function()
 {
     document.getElementById("message").style.display="none";
 }
 
 // When the user starts to type something inside the password field
-myInput.onkeyup=function()
+function passwordCheck()
 {
     // Validate lowercase letters
-    var lowerCaseLetters = /[a-z]/;
+    var lowerCaseLetters=/[a-z]/;
 
-    if(myInput.value.match(lowerCaseLetters))
+    if(psw.value.match(lowerCaseLetters))
     {
         letter.classList.remove("invalid");
         letter.classList.add("valid");
@@ -36,9 +36,9 @@ myInput.onkeyup=function()
     }
 
     // Validate capital letters
-    var upperCaseLetters = /[A-Z]/;
+    var upperCaseLetters=/[A-Z]/;
 
-    if(myInput.value.match(upperCaseLetters))
+    if(psw.value.match(upperCaseLetters))
     {
         capital.classList.remove("invalid");
         capital.classList.add("valid");
@@ -51,9 +51,9 @@ myInput.onkeyup=function()
     }
 
     // Validate numbers
-    var numbers = /[0-9]/;
+    var numbers=/[0-9]/;
 
-    if(myInput.value.match(numbers))
+    if(psw.value.match(numbers))
     {
         number.classList.remove("invalid");
         number.classList.add("valid");
@@ -66,7 +66,7 @@ myInput.onkeyup=function()
     }
 
     // Validate length
-    if(myInput.value.length >= 8)
+    if(psw.value.length >=8)
     {
         length.classList.remove("invalid");
         length.classList.add("valid");
@@ -78,8 +78,10 @@ myInput.onkeyup=function()
         length.classList.add("invalid");
     }
 
-    var specialCharacters = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    if(myInput.value.match(specialCharacters))
+    var specialCharacters=/[` !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    
+    //Special characters check
+    if(psw.value.match(specialCharacters))
     {
         specialChar.classList.remove("invalid");
         specialChar.classList.add("valid");
@@ -90,5 +92,10 @@ myInput.onkeyup=function()
         specialChar.classList.remove("valid");
         specialChar.classList.add("invalid");
     }
+}
+
+
+function usernameCheck()
+{
     
 }
