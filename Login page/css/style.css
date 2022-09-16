@@ -1,112 +1,59 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
+/* Style all input fields */
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  margin-top: 6px;
+  margin-bottom: 16px;
 }
-html,body{
-  display: grid;
-  height: 100%;
-  place-items: center;
-  text-align: center;
-  background: #f2f2f2;
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
 }
-.container{
-  background: #fff;
-  padding: 20px 30px;
-  width: 420px;
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+/* Style the container for inputs */
+.container {
+  background-color: #f1f1f1;
+  padding: 20px;
 }
-.container header{
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 33px;
-}
-.container form{
-  margin: 20px 5px 10px 5px;
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
   position: relative;
+  padding: 20px;
+  margin-top: 10px;
 }
-.container form .field{
-  height: 45px;
-  width: 100%;
-  display: flex;
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
   position: relative;
+  left: -35px;
+  content: "✔";
 }
-form .field input{
-  width: 100%;
-  height: 100%;
-  border: 1px solid lightgrey;
-  padding-left: 15px;
-  outline: none;
-  border-radius: 5px;
-  font-size: 17px;
-  transition: all 0.3s;
+
+/* Add a red text color and an "x" icon when the requirements are wrong */
+.invalid {
+  color: red;
 }
-form .field input:focus{
-  border-color: #27ae60;
-  box-shadow: inset 0 0 3px #2fd072;
-}
-form .field .showBtn{
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  display: none;
-  user-select: none;
-}
-form .indicator{
-  height: 10px;
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  display: none;
-}
-form .indicator span{
+
+.invalid:before {
   position: relative;
-  height: 100%;
-  width: 100%;
-  background: lightgrey;
-  border-radius: 5px;
-}
-form .indicator span:nth-child(2){
-  margin: 0 3px;
-}
-form .indicator span.active:before{
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  border-radius: 5px;
-}
-.indicator span.weak:before{
-  background-color: #ff4757;
-}
-.indicator span.medium:before{
-  background-color: orange;
-}
-.indicator span.strong:before{
-  background-color: #23ad5c;
-}
-form .text{
-  font-size: 20px;
-  font-weight: 500;
-  display: none;
-  margin-bottom: -10px;
-}
-form .text.weak{
-  color: #ff4757;
-}
-form .text.medium{
-  color: orange;
-}
-form .text.strong{
-  color: #23ad5c;
+  left: -35px;
+  content: "✖";
 }
